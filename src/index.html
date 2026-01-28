@@ -1,0 +1,183 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ProvaLab Design System - Educational, Modern, Engaging */
+
+@layer base {
+  :root {
+    /* Core Colors - Deep Blue Primary (Trust/Learning) */
+    --background: 220 20% 98%;
+    --foreground: 220 30% 12%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 30% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 30% 12%;
+
+    /* Primary - Deep Educational Blue */
+    --primary: 220 70% 45%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 220 80% 55%;
+
+    /* Secondary - Teal (Growth/Success) */
+    --secondary: 170 60% 45%;
+    --secondary-foreground: 0 0% 100%;
+
+    /* Accent - Warm Amber (Energy/Engagement) */
+    --accent: 38 95% 55%;
+    --accent-foreground: 38 95% 15%;
+
+    /* Muted */
+    --muted: 220 15% 94%;
+    --muted-foreground: 220 15% 45%;
+
+    /* Success/Error States */
+    --success: 150 60% 45%;
+    --success-foreground: 0 0% 100%;
+    --destructive: 0 72% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Border & Input */
+    --border: 220 20% 88%;
+    --input: 220 20% 92%;
+    --ring: 220 70% 45%;
+
+    --radius: 0.75rem;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(220 70% 45%), hsl(220 80% 55%));
+    --gradient-secondary: linear-gradient(135deg, hsl(170 60% 45%), hsl(170 70% 55%));
+    --gradient-accent: linear-gradient(135deg, hsl(38 95% 55%), hsl(45 95% 60%));
+    --gradient-hero: linear-gradient(135deg, hsl(220 70% 45%) 0%, hsl(260 60% 55%) 50%, hsl(170 60% 45%) 100%);
+    --gradient-card: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(220 20% 98%) 100%);
+
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 hsl(220 30% 12% / 0.05);
+    --shadow-md: 0 4px 6px -1px hsl(220 30% 12% / 0.1), 0 2px 4px -2px hsl(220 30% 12% / 0.1);
+    --shadow-lg: 0 10px 15px -3px hsl(220 30% 12% / 0.1), 0 4px 6px -4px hsl(220 30% 12% / 0.1);
+    --shadow-xl: 0 20px 25px -5px hsl(220 30% 12% / 0.1), 0 8px 10px -6px hsl(220 30% 12% / 0.1);
+    --shadow-glow: 0 0 40px -10px hsl(220 70% 45% / 0.4);
+
+    /* Sidebar */
+    --sidebar-background: 220 25% 97%;
+    --sidebar-foreground: 220 30% 25%;
+    --sidebar-primary: 220 70% 45%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 20% 94%;
+    --sidebar-accent-foreground: 220 30% 25%;
+    --sidebar-border: 220 20% 90%;
+    --sidebar-ring: 220 70% 45%;
+  }
+
+  .dark {
+    --background: 220 25% 8%;
+    --foreground: 220 15% 95%;
+
+    --card: 220 25% 12%;
+    --card-foreground: 220 15% 95%;
+
+    --popover: 220 25% 12%;
+    --popover-foreground: 220 15% 95%;
+
+    --primary: 220 70% 55%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 220 80% 65%;
+
+    --secondary: 170 55% 50%;
+    --secondary-foreground: 0 0% 100%;
+
+    --accent: 38 90% 60%;
+    --accent-foreground: 38 95% 10%;
+
+    --muted: 220 20% 18%;
+    --muted-foreground: 220 15% 60%;
+
+    --success: 150 55% 50%;
+    --success-foreground: 0 0% 100%;
+    --destructive: 0 65% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 20% 20%;
+    --input: 220 20% 18%;
+    --ring: 220 70% 55%;
+
+    --gradient-hero: linear-gradient(135deg, hsl(220 70% 35%) 0%, hsl(260 50% 40%) 50%, hsl(170 50% 35%) 100%);
+
+    --sidebar-background: 220 25% 10%;
+    --sidebar-foreground: 220 15% 90%;
+    --sidebar-primary: 220 70% 55%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 20% 15%;
+    --sidebar-accent-foreground: 220 15% 90%;
+    --sidebar-border: 220 20% 18%;
+    --sidebar-ring: 220 70% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display font-bold tracking-tight;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-card/80 backdrop-blur-xl border border-border/50 shadow-lg;
+  }
+
+  .gradient-text {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--gradient-hero);
+  }
+
+  .btn-glow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-pulse-slow {
+    animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+}
+
+@layer utilities {
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: -200% 0;
+    }
+    100% {
+      background-position: 200% 0;
+    }
+  }
+
+  .animate-shimmer {
+    animation: shimmer 2s linear infinite;
+    background: linear-gradient(90deg, transparent, hsl(0 0% 100% / 0.1), transparent);
+    background-size: 200% 100%;
+  }
+}
